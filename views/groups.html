@@ -1,0 +1,35 @@
+        <div class="row">
+        <div class="col s6">
+            <br>
+            <a class="waves-effect blue-grey btn-large" ng-click="decade = {decade:'1960'}">1960</a>
+            <a class="waves-effect blue-grey btn-large" ng-click="decade = {decade:'1970'}">1970</a>
+            <a class="waves-effect blue-grey btn-large" ng-click="decade = {decade:'1980'}">1980</a>
+            <a class="waves-effect blue-grey btn-large" ng-click="decade = {decade:'1990'}">1990</a>
+            <a class="waves-effect blue-grey btn-large" ng-click="decade = {decade:''}" href="#/rock">All</a>
+        </div>
+    
+        <div class="col s6">
+            <div>
+              <br> 
+              <input type="text" ng-model="search" placeholder="Search">
+            </div>
+        </div>
+
+
+    </div>
+
+<div class="row">
+  <div class="col s12 m6" ng-repeat="group in groups | filter: decade | filter: search">
+    <div class="card">
+      <div class="card-image">
+        <a href="#/group/{{group.name}}"><img src="{{group.image}}" height="350px"></a>
+        
+      </div>
+      <div class="card-content">
+        <p><span class="card-title">{{group.name}}</span></p>
+        <p><span><b>Decade: </b></span>{{group.decade}}</p>
+        <p><span><b>Songs: </b></span><span ng-repeat="songs in group.songs">{{songs}}, </span></p>
+        </div>
+      </div>
+    </div>
+</div>
